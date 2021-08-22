@@ -8,13 +8,14 @@
       </ul>
     </nav>   
     <div class="project-card">
-      <figure v-for="n in 3" :key="n" class="snip1336">
-        <img src="../assets/eagronetwork.jpg" alt="sample87" />
-        <figcaption>
-          <h2>eAgroNetwork</h2>
-          <p>Aplicatie de promovare a producatorilor agricoli pentru potentiali clienti. Tehnologi folosite: Vue.js, Laravel, Mysql.<br>Email: dev@app.com<br>Parola: 1234 </p>
-          <a href="http://raspberypi.go.ro/eagronetwork" class="info">Vizualizare</a>
-        </figcaption>
+      <figure v-for="n in 6" :key="n" class="snip1336">
+          <a href="http://raspberypi.go.ro/eagronetwork" class="warp-link">
+            <img src="../assets/eagronetwork.jpg" alt="sample87" />
+            <figcaption>
+              <h2>eAgroNetwork</h2>
+              <p>Aplicatie de promovare a producatorilor agricoli pentru potentiali clienti. Tehnologi folosite: Vue.js, Laravel, Mysql.<br>Email: dev@app.com<br>Parola: 1234 </p>
+            </figcaption>
+          </a> 
       </figure>
     </div>
     <div class="bottom">
@@ -31,6 +32,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.warp-link{
+  text-decoration: none;
+  color: white;
+}
+
 @media screen and (max-width: 600px){
   .link{
     display: none;
@@ -87,6 +94,7 @@ export default {
   font-size: 25px;
   text-align: center;
   font-weight: bold;
+  color: white;
 
 }
 .container-css{
@@ -150,6 +158,14 @@ export default {
   background-color: #141414;
   max-height: 100%;
 }
+
+.project-card :hover{
+  box-shadow: 0 4px 8px rgb(227 242 253 / 30%), 0 6px 20px 0 rgb(25,25,112,  50%);
+}
+
+.snip1336 :hover{
+  box-shadow: none;
+}
 .snip1336 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -159,7 +175,6 @@ export default {
 .snip1336 img {
   max-width: 100%;
   vertical-align: top;
-  opacity: 0.85;
 }
 .snip1336 figcaption {
   width: 100%;
@@ -182,14 +197,7 @@ export default {
   font-weight: 600;
   letter-spacing: 1px;
 }
-.snip1336 figcaption a:hover {
-  opacity: 1;
-}
-.snip1336 .follow {
-  margin-right: 4%;
-  border-color: #2980b9;
-  color: #2980b9;
-}
+
 .snip1336 h2 {
   margin: 0 0 5px;
   font-weight: 300;
