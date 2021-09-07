@@ -8,12 +8,12 @@
       </ul>
     </nav>   
     <div class="project-card">
-      <figure v-for="n in 6" :key="n" class="snip1336">
-          <a href="http://raspberypi.go.ro/eagronetwork" class="warp-link">
-            <img src="../assets/eagronetwork.jpg" alt="sample87" />
+      <figure v-for="project in projects" :key="project" class="snip1336">
+          <a :href="project.link" class="warp-link">
+            <img :src="backend + 'images/' +project.shortcut" alt="Project banner" />
             <figcaption>
-              <h2>eAgroNetwork</h2>
-              <p>Aplicatie de promovare a producatorilor agricoli pentru potentiali clienti. Tehnologi folosite: Vue.js, Laravel, Mysql.<br>Email: dev@app.com<br>Parola: 1234 </p>
+              <h2>{{project.title}}</h2>
+              <p>{{project.description}}</p>
             </figcaption>
           </a> 
       </figure>
@@ -25,8 +25,27 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Website',
+  data(){
+    return{
+      projects: null,
+      backend: "http://127.0.0.1:8000/"
+    }
+  },
+  methods: {
+    getProjects: function(){
+      axios.get(this.backend+'api/getProjects').then((res)=>{
+        this.projects = res.data['message'];
+      }).catch((err)=>{
+        console.log(err);
+      })
+    }
+  },
+  mounted(){
+    this.getProjects();
+  }
 }
 </script>
 
